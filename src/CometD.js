@@ -196,7 +196,11 @@ var CometD = function(name)
      */
     this._isCrossDomain = function(hostAndPort)
     {
-        return hostAndPort && hostAndPort !== window.location.host;
+        var host = self.location.host;
+        if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
+            if (host === "") return true;
+        }
+        return hostAndPort && hostAndPort !== host;
     };
 
     function _configure(configuration)
