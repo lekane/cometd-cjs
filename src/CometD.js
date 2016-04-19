@@ -154,12 +154,12 @@ var CometD = function(name)
 
     function _log(level, args)
     {
-        if (window.console)
+        if (self.console)
         {
-            var logger = window.console[level];
+            var logger = self.console[level];
             if (_isFunction(logger))
             {
-                logger.apply(window.console, args);
+                logger.apply(self.console, args);
             }
         }
     }
