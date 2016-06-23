@@ -197,7 +197,7 @@ var CometD = function(name)
     this._isCrossDomain = function(hostAndPort)
     {
         if(typeof self === 'undefined') {
-          return true;
+          return false;
         }
 
         var host = self.location.host;
