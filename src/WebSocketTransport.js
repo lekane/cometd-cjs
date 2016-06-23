@@ -3,7 +3,13 @@ var _JSON = require('./cometd-json');
 var Utils = require('./Utils');
 
 // Use an alias to be less dependent on browser's quirks.
-var _WebSocket = self.WebSocket;
+var _WebSocket;
+if(typeof process !== 'undefined') {
+  // Node.js
+  _WebSocket = require('ws');
+} else {
+  _WebSocket = self.WebSocket;
+}
 
 var WebSocketTransport = function()
 {
