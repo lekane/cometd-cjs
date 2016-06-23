@@ -154,12 +154,12 @@ var CometD = function(name)
 
     function _log(level, args)
     {
-        if (self.console)
+        if (console)
         {
-            var logger = self.console[level];
+            var logger = console[level];
             if (_isFunction(logger))
             {
-                logger.apply(self.console, args);
+                logger.apply(console, args);
             }
         }
     }
@@ -196,6 +196,10 @@ var CometD = function(name)
      */
     this._isCrossDomain = function(hostAndPort)
     {
+        if(typeof self === 'undefined') {
+          return true;
+        }
+
         var host = self.location.host;
         if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
             if (host === "") return true;

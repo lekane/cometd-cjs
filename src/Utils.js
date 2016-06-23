@@ -38,7 +38,7 @@ Utils.inArray = function(element, array)
 
 Utils.setTimeout = function(cometd, funktion, delay)
 {
-    return self.setTimeout(function()
+    return setTimeout(function()
     {
         try
         {
@@ -54,7 +54,7 @@ Utils.setTimeout = function(cometd, funktion, delay)
 
 Utils.clearTimeout = function(timeoutHandle)
 {
-    self.clearTimeout(timeoutHandle);
+    clearTimeout(timeoutHandle);
 };
 
 module.exports = Utils;
